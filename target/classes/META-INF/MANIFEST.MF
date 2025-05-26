@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Built-By: suwaman
+Build-Jdk: 17.0.15
+Main-Class: com.cg.Java_Prep.HelloWorld
+Created-By: Maven Integration for Eclipse
+
