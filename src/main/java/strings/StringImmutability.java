@@ -12,7 +12,7 @@ package strings;
  *      Below is the example of Immutable class 
  */
 
-class Test {
+final class Test {
 	private int i;
 	
 	Test(int i){

@@ -1,6 +1,9 @@
-package Streams;
+
+ package Streams;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -70,8 +73,10 @@ public class EmployeeStreams {
 		Set<Employee> e3 = e.stream()
 				.filter(i -> i.getName().charAt(0)=='A')
 				.map(i -> new Employee(i.getId(),i.getName()))
-				.collect(Collectors.toSet());
-		System.out.println("Set"+e3);
+				.sorted(Comparator.comparing(s->s.getId()))
+				.collect(Collectors.toCollection(LinkedHashSet::new));
+		System.out.println("Set sorted by id"+e3);
+		
 		
 		Set<Employee> e4 = e.stream()
 				.filter(i -> i.getName().charAt(0)=='A')

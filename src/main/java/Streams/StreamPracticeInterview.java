@@ -66,10 +66,10 @@ public class StreamPracticeInterview {
 	public static void main(String[] args) {
 		StreamPracticeInterview s = new StreamPracticeInterview();
 		
-		s.largesLengthWord();
-		s.removeDuplicateFromString();
-		s.secondHighestWord();
-		s.secondHighestWordLength();
+//		s.largesLengthWord();
+//		s.removeDuplicateFromString();
+//		s.secondHighestWord();
+//		s.secondHighestWordLength();
 		s.occuranceOfWord();
 		
 	}

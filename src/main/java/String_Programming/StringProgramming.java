@@ -81,22 +81,68 @@ public class StringProgramming {
 	public void firstNonRepeatedCharacter(String s) {
 		char[] ch= s.toCharArray();
 		Map<Character,Integer> map = new LinkedHashMap<>();
-		for(char c:ch) {
-			if(!map.containsKey(c)) {
-				map.put(c, 1);
-			}
-			else {
-				int count= map.get(c);
-				map.put(c, count+1);
-				
-			}
-		}
+//		for(char c:ch) {
+//			if(!map.containsKey(c)) {
+//				map.put(c, 1);
+//			}
+//			else {
+//				int count= map.get(c);
+//				map.put(c, count+1);
+//			}
+//		}
+		
+		/// by using compute
+//		for(Character c : ch) {
+//			map.compute(c,(k,v)->(v==null)?1:v+1);
+//		}
+		
+		/// by using merge
+				for(Character c : ch) {
+					map.merge(c,1,(k,v)-> k+v );
+				}
+		
 		for(Map.Entry<Character, Integer> entry:map.entrySet()) {
 			if(entry.getValue()==1) {
 				System.out.println(entry);
 			}
 		}
 		System.out.println(map);
+	}
+	
+	public void occuranceOfWords() {
+		List<String> s = Arrays.asList("apple","fruit","apple","fruit","apple","fruit","maple","store");
+		
+		HashMap<String, Integer>m = new HashMap<>();
+		
+		/////// by using getorDefault method
+
+//		for(String s1 :s ) {
+//				m.put(s1,m.getOrDefault(s1, 0)+1 );
+//		}
+		//-------------------------------------------------
+		
+		
+		///////////BY USING COMPUTE METHOD 
+//		for(String st : s) {
+//			m.compute(st,(k,v)->(v==null)? 1: v+1 );
+//		}
+		
+		//-------------------------------------------------
+		
+///////////BY USING merge METHOD 
+		for(String st : s) {
+			m.merge(st, 1, (oldValue,newValue)-> oldValue+newValue);
+		}
+		
+		//-------------------------------------------------
+		System.out.println(m);
+		for(Map.Entry<String, Integer> i:m.entrySet()) {
+			
+			System.out.println(i.getKey() +" is times "+ i.getValue());
+		}
+		
+		
+		
 	}
 	
 	public static void main(String[] args) {
@@ -108,5 +154,6 @@ public class StringProgramming {
 //		p.vowelConsonentCount("Strings");
 //		p.characterOccurance("aaabbbbcccdddd");
 		p.firstNonRepeatedCharacter("aaaabccckcsssddd");
+//		p.occuranceOfWords();
 	}
 }

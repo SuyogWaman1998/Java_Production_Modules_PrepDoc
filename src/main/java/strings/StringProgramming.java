@@ -1,5 +1,10 @@
 package strings;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 public class StringProgramming {
 	
 	
@@ -14,12 +19,41 @@ public class StringProgramming {
 		System.out.println(reversed);
 	}
 	
+	public void findDuplicateChar(String s) {
+		
+		Map<Character,Integer> p = new HashMap<>();
+		int count=0;
+		for(char c : s.toCharArray())
+		{
+			
+			p.put(c,count +1 );
+			count++;
+		}
+		System.out.println(p);
+		
+		
+	}
 	
+	public void reverseOnlyWordInString() {
+		String str = "Hello World";
+		
+		String str1[] = str.split(" ");
+		StringBuilder reversed = new StringBuilder();
+		for(int i =0; i<str1.length;i++) {
+			StringBuilder s = new StringBuilder(str1[i]);
+			reversed.append(" " + s.reverse());
+		}
+
+		System.out.println(reversed);
+		
+	}
 
 	public static void main(String[] args) {
 		
 		StringProgramming s = new StringProgramming();
-		s.reverseString("suyog");
+//		s.reverseString("suyog");
+//		s.findDuplicateChar("Cartoon");
+		s.reverseOnlyWordInString();
 		
 	}
 }
